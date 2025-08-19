@@ -1,0 +1,6 @@
+[tools]
+docker-cli = "latest"
+ubi = "latest"
+
+[tasks.install-buildx]
+run = "ubi --project docker/buildx --in {{env.HOME}}/.docker/cli-plugins --rename-exe docker-buildx"
