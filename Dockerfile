@@ -7,7 +7,7 @@ LABEL maintainer="github@sytone.com" \
       org.opencontainers.image.description="Hosted Obsidian instance allowing access via web browser"
 
 # Set version label
-ARG OBSIDIAN_VERSION=1.7.7
+ARG OBSIDIAN_VERSION=1.10.6
 
 # Update and install extra packages
 RUN echo "**** install packages ****" && \
@@ -16,6 +16,7 @@ RUN echo "**** install packages ****" && \
     chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > /etc/apt/sources.list.d/github-cli.list && \
     apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends curl libgtk-3-0 libnotify4 libatspi2.0-0 libsecret-1-0 libnss3 desktop-file-utils fonts-noto-color-emoji git ssh-askpass gh && \
     apt-get autoclean && rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 

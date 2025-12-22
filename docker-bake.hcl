@@ -1,6 +1,6 @@
 variable "OBSIDIAN_VERSION" {
   type = string
-  default = "1.9.10"
+  default = "1.10.6"
 }
 
 target "default" {
